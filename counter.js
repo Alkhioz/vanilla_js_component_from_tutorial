@@ -16,22 +16,24 @@ class MyCounter extends HTMLElement{
         return ["count"];
     }
 
-    inc(){
+    increment = ()=>{
         this.count++;
+    }
+
+    setup_ = () =>{
+        this.render();
+        let btn = this.shadow.querySelector("#btn");
+        btn.addEventListener('click', this.increment.bind(this));
     }
 
     attributeChangedCallback(prop, oldVal, newVal){
         if(prop === "count") {
-            this.render();
-            let btn = this.shadow.querySelector("#btn");
-            btn.addEventListener('click', this.inc.bind(this));
+            this.setup_();
         }    
     }
 
     connectedCallback(){
-        this.render();
-        let btn = this.shadow.querySelector("#btn");
-        btn.addEventListener('click', this.inc.bind(this));
+        this.setup_();
     }
 
     render(){//esas comillas alt 96
