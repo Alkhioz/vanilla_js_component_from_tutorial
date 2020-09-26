@@ -4,8 +4,20 @@ class MyCounter extends HTMLElement{
         this.shadow = this.attachShadow({mode: "open"});
     }
 
+    get count(){
+        return this.getAttribute("count");
+    }
+
+    set count(val){
+        this.setAttribute("count", val);
+    }
+
     static get observedAttributes(){
         return ["count"];
+    }
+
+    attributeChangeCallback(prop, oldVal, newVal){
+        if(prop === "count") this.render();
     }
 
     connectedCallback(){
