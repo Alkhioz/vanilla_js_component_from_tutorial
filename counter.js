@@ -16,7 +16,7 @@ class MyCounter extends HTMLElement{
         return ["count"];
     }
 
-    attributeChangeCallback(prop, oldVal, newVal){
+    attributeChangedCallback(prop, oldVal, newVal){
         if(prop === "count") this.render();
     }
 

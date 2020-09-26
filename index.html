@@ -6,7 +6,18 @@
     <title>Component</title>
 </head>
 <body>
-    <my-counter count="10"></my-counter>
+    <my-counter id="counter" count="20"></my-counter>
+    
     <script src="./counter.js"></script>
+    
+    <br/><br/>
+    <button onclick="update()">Update</button>
+    
+    <script>
+        function update(){
+            let counter = document.querySelector("#counter");
+            counter.setAttribute("count", 100);
+        }
+    </script>
 </body>
 </html>
